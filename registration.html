@@ -1,0 +1,109 @@
+<!DOCTYPE HTML>
+<html>
+
+<head>
+  <title>Registration Page</title>
+
+  <link rel="stylesheet" type="text/css" href="style.css" />
+    
+    <script type = "text/javascript">  
+     
+         
+    function CheckPassword() 
+        { 
+var pw1 = document.getElementById("pass1").value;  
+var pw2 = document.getElementById("pass2").value;
+if(pw2==(pw1)) 
+{ 
+alert('Registerd sucessfully')
+return true;
+}
+else
+{ 
+alert('Password dosent match!')
+return false;
+}
+}
+   
+
+function ValidateEmail(email)
+{
+var em =document.getElementById("email1").value;
+var mailformat = /^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/;
+if(em.match(mailformat))
+{
+document.f1.email1.focus();
+return true;
+}
+else
+{
+alert("You have entered an invalid email address!");
+document.f1.email1.focus();
+return false;
+}
+}
+     
+        
+      </script>  
+</head>
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<body>
+    
+    <div id="site_content">
+       
+      <div id="content">
+	  
+          <h2><center><b>Registration Form: </b></center></h2>
+     
+				<form name="f1" style="border:3px solid #ccc" onsubmit ="return CheckPassword();">
+						<div class="container">
+							<p>Please fill your basic information in this form </p>
+						
+					<label for="fname"><b>First Name</b></label>
+					<input type="text" placeholder="Enter First Name" name="fname" pattern="([a-zA-Z]).{2,}$" required>
+					
+					<label for="midname"><b>Middle Name</b></label>
+					<input type="text" placeholder="Enter Middle Name" name="midname" pattern="([a-zA-Z]).{2,}$" >
+					
+					<label for="lname"><b>Last Name</b></label>
+					<input type="text" placeholder="Enter Last Name" name="lname"  pattern="([a-zA-Z]).{2,}$"required>
+				
+
+					<label for="mobno"><b>Mobile No. </b></label>
+					<input type="tel" placeholder="Enter 10 Digit Mobile Number without country code" name="mobno" pattern="^\d{10}$" required>
+    
+					<br/><label for="email"><b>Email</b></label>
+					<input type="text" placeholder="Enter Email" name="email" id="email1" required>
+
+				<label for="address"><b>Address:</b></label>
+					<input type="textarea" placeholder="Enter Your Address" name="address" rows="5" cols="40"  required>
+					
+					<label for="gender"><b>Gender:</b></label>
+					  <select id ="gender" >
+										<option value="Gender">Male</option>
+										<option value="Gender">Female</option>
+										<option value="Gender">Other</option>
+                        </select> 
+                           
+                    <label for="password"><b>Password :</b></label></br>
+                   <h4> Note: Password must contain at least one number and one uppercase and lowercase letter, and at least 8 or more characters"</h4>
+					<input type="password" placeholder="Set a pasword" name="pass1" id="pass1" pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,15}" required >
+					
+                    <label for="password"><b>Confirm Password :</b></label>
+					<input type="password" placeholder="Confirm pssword" name="pass2" id="pass2" required >
+				
+                    <span id = "message2" style="color:black"> </span>
+					<br><br>
+					
+
+	               <input type="submit" name="btnSubmit" value="Register" class="btn btn-primary" onclick="ValidateEmail()"  />
+                    <input type="reset" name="btnReset" value="reset" class="btn btn-primary"   />
+  
+	           </div>
+          </form>
+ </br></br></br></br>
+        </div>     	
+    </div> 
+</body>
+</html>
